@@ -35,6 +35,7 @@ def test_contains(string_utils):
     assert string_utils.contains("Лень", "ь") is True     # Позитив
     assert string_utils.contains("Лень", "П") is False    # Позитив
     assert string_utils.contains("Лень", "") is True      # Позитив
+    assert string_utils.contains("", "") is True          # Негатив
 
 
 # Тесты для метода delete_symbol
@@ -48,11 +49,15 @@ def test_delete_symbol(string_utils):
 def test_starts_with(string_utils):
     assert string_utils.starts_with("Лень", "Л") is True
     assert string_utils.starts_with("Лень", "ь") is False
+    assert string_utils.starts_with("", "") is True
+    assert string_utils.starts_with("", "б") is False
 
 # Тесты для метода end_with
 def test_end_with(string_utils):
     assert string_utils.end_with("Лень", "ь") is True
     assert string_utils.end_with("Лень", "Л") is False
+    assert string_utils.end_with("", "") is True
+    assert string_utils.end_with("", "m") is False
 
 # Тесты для метода is_empty
 def test_is_empty(string_utils):
